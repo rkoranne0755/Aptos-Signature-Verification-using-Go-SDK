@@ -8,7 +8,7 @@ import (
 )
 
 // MODULE_ADDRESS is the account address for the module.
-var MODULE_ADDRESS = StringToAccountAddress("93fe88844dd49f95caf0e5b5647ff2300fb32731b896bfdf7d4a77a1d48e7295")
+var MODULE_ADDRESS = StringToAccountAddress("Add Wallet Address Here.")
 
 // MODULE_NAME is the name of the module.
 const MODULE_NAME = "verify_signature"

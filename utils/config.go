@@ -1,9 +1,6 @@
 package utils
 
 import (
-	"encoding/hex"
-	"fmt"
-
 	"github.com/aptos-labs/aptos-go-sdk"
 )
 
@@ -65,10 +62,19 @@ type YAML struct {
 
 // StringToAccountAddress converts a hexadecimal string into an aptos.AccountAddress.
 func StringToAccountAddress(address string) aptos.AccountAddress {
-	bytes, err := hex.DecodeString(address)
+
+	accAdd := &aptos.AccountAddress{}
+	err := accAdd.ParseStringRelaxed("0x197327f4b6da2bb794cc1f8136eeddd3851d7c65e78df013520e2505ff34c1f4")
 	if err != nil {
-		fmt.Println("Error decoding address", err.Error())
-		return aptos.AccountAddress{}
+		panic("Failed to parse address:" + err.Error())
 	}
-	return aptos.AccountAddress(bytes)
+
+	// bytes, err := hex.DecodeString(address)
+	// if err != nil {
+	// 	fmt.Println("Error decoding address", err.Error())
+	// 	return aptos.AccountAddress{}
+	// }
+	// return aptos.AccountAddress(bytes)
+
+	return *accAdd
 }

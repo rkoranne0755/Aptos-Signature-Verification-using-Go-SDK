@@ -106,7 +106,7 @@ func getPackageBytesToPublish(filePath string) ([]byte, [][]byte, error) {
 
 func VerifySignature(client *aptos.Client, from aptos.AccountAddress, amount uint64, signature []byte) bool {
 	addressBytes, _ := bcs.Serialize(&from)
-	amountBytes, _ := bcs.SerializeU64(100)
+	amountBytes, _ := bcs.SerializeU64(amount)
 	sigatureBytes, _ := bcs.SerializeBytes(signature)
 
 	viewResponce, err := client.View(&aptos.ViewPayload{
